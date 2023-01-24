@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+
+    <!--这里是关于orders的bean标签-->
+
+    <!--这个bean标签所代表的是将来servletPath中涉及的名字对应是orders时
+    ，那么就需要OrdersController这个类来处理-->
+    <bean id="orders" class="com.atguigu.control.OrdersController">
+        <!--property 表示该类里所有用的属性 name表示属性名 ref表示引用其他类的id值-->
+        <property name="ordersService" ref="ordersService"/>
+    </bean>
+    <bean id="ordersService" class="com.atguigu.model.service.OrdersServiceImpl">
+        <property name="ordersDao" ref="ordersDao"/>
+    </bean>
+    <bean id="ordersDao" class="com.atguigu.model.dao.ordersDao.OrdersDaoImpl"/>
+
+
+    <!--这里是关于ordersType的bean标签-->
+    <bean id="ordersType" class="com.atguigu.control.OrdersTypesController">
+        <property name="orderTypeService" ref="orderTypeService"/>
+    </bean>
+    <bean id="orderTypeService" class="com.atguigu.model.service.OrderTypeServiceImpl">
+        <property name="typeDao" ref="orderTypeDao"/>
+    </bean>
+    <bean id="orderTypeDao" class="com.atguigu.model.dao.otypeDao.OTypeDaoImpl"/>
+</beans>
+
+<!--
+XML 包含三部分
+1)XML申明 而且申明这段代码一定在XML文件的第一行
+2)DTD 文档类型申明
+3)XML正文
+-->
