@@ -1,7 +1,7 @@
 package com.atguigu.model.dao.ordersDao;
 
 import com.atguigu.model.pojo.Orders;
-import com.atguigu.model.dao.basedao.BaseDao;
+import com.atguigu.myssm.basedao.BaseDao;
 
 import java.util.List;
 

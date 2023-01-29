@@ -1,4 +1,4 @@
-package com.atguigu.myssm.io;
+package com.atguigu.myssm.ioc;
 
 /**
  * 制作一个接口名为BeanFactory

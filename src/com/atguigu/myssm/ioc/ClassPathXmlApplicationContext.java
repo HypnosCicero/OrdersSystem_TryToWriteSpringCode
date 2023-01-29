@@ -1,4 +1,4 @@
-package com.atguigu.myssm.io;
+package com.atguigu.myssm.ioc;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

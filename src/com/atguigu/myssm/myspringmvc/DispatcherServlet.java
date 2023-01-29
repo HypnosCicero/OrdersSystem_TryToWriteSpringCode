@@ -1,26 +1,15 @@
-package com.atguigu.web;
+package com.atguigu.myssm.myspringmvc;
 
-import com.atguigu.myssm.io.BeanFactory;
-import com.atguigu.myssm.io.ClassPathXmlApplicationContext;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import com.atguigu.myssm.ioc.BeanFactory;
+import com.atguigu.myssm.ioc.ClassPathXmlApplicationContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.*;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet("*.do")
 public class DispatcherServlet extends HttpServlet {

@@ -1,7 +1,7 @@
 package com.atguigu.model.dao.otypeDao;
 
 import com.atguigu.model.pojo.OType;
-import com.atguigu.model.dao.basedao.BaseDao;
+import com.atguigu.myssm.basedao.BaseDao;
 
 import java.util.List;
 

@@ -1,20 +1,38 @@
-package com.atguigu.model.dao.basedao;
+package com.atguigu.myssm.basedao;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public abstract class BaseDao<T> {
-    private String driver = "com.mysql.cj.jdbc.Driver";
-    private String url = "jdbc:mysql://localhost:3306/Order_Management_Database?useSSL=true&characterEncoding=utf8";
-    private String user = "root";
-    private String password = "abc123";
+    private static String driver;
+    private static String url;
+    private static String user;
+    private static String password;
 
+    private void startDisposition() {
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream("jdbc.properties");
+        Properties properties = new Properties();
+        try {
+            properties.load(is);
+            driver = properties.getProperty("jdbc.driver");
+            url = properties.getProperty("jdbc.url");
+            user = properties.getProperty("jdbc.user");
+            password = properties.getProperty("jdbc.password");
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
     private Class entryClass;
 
     public BaseDao(){
-        Type superClass = getClass().getGenericSuperclass();
+        startDisposition();
+         Type superClass = getClass().getGenericSuperclass();
         Type[] actualTypes = ((ParameterizedType) superClass).getActualTypeArguments();
         Type type = actualTypes[0];
         try {
